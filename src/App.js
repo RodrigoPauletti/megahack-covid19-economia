@@ -90,7 +90,6 @@ function App() {
       <Menu>
         <a
           href="http://bit.ly/megahack-covid19-economia"
-          target="_blank"
           rel="noopener noreferrer"
         >
           <Logo />
