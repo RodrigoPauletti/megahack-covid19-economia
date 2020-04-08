@@ -97,7 +97,7 @@ export const Subsection = styled.div`
 export const Title = styled.h1`
   color: ${colors.light};
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: left;
   font-weight: 700;
   & span {
