@@ -4,8 +4,9 @@ import { fonts, colors } from "./variables.js";
 
 import logoMercadoFuturo from "./assets/images/logo-mercado-futuro.png";
 import homeBgImage from "./assets/images/bg.png";
-import homeImage from "./assets/images/inicio.svg";
-import aboutImage from "./assets/images/sobre.svg";
+import homeBanner from "./assets/images/home-banner.svg";
+import aboutImage from "./assets/images/about.svg";
+import aboutBanner from "./assets/images/about-banner.svg";
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -21,6 +22,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   #root {
     height: 100%;
+  }
+  .fade.modal.show {
+    padding: 0 .5rem;
   }
   .modal-dialog, .modal-content {
     margin: 0;
@@ -122,36 +126,58 @@ export const Subtitle = styled.h2`
 
 export const Text = styled.p`
   margin: 0;
+  &#bonusPercentage,
+  &#bonusTotal {
+    font-size: 2rem;
+  }
+  @media (max-width: 1024px) {
+    &#bonusPercentage,
+    &#bonusTotal {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
-export const Form = styled.form`
-  width: 100%;
-  margin-top: 20px;
-`;
-
-export const Button = styled.button.attrs({
+export const ButtonDefault = styled.button.attrs({
   type: "button",
 })`
-  background: ${colors.primary};
-  color: ${colors.light};
-  padding: 0.5rem 1.8rem;
-  margin-top: 5rem;
   font-size: 1rem;
   font-weight: 700;
-  border: 2px solid transparent;
   border-radius: 5rem;
   transition: 0.3s all ease;
-  &:hover {
-    color: ${colors.primary};
-    background: ${colors.light};
-    border: 2px solid ${colors.primary};
-    cursor: pointer;
-  }
   &:focus {
     outline: none;
   }
   @media (max-width: 1024px) {
     margin: 2rem auto 0;
+  }
+`;
+
+export const Button = styled(ButtonDefault)`
+  background: ${colors.primary};
+  color: ${colors.light};
+  margin-top: 5rem;
+  padding: 0.5rem 1.8rem;
+  border: 2px solid transparent;
+  &:hover {
+    color: ${colors.primary};
+    background: ${colors.light};
+    border-color: ${colors.primary};
+    cursor: pointer;
+  }
+`;
+
+export const ButtonOutline = styled(ButtonDefault)`
+  background: ${colors.light};
+  color: ${colors.primaryDark};
+  margin: 2rem auto 0;
+  padding: 0.5rem 1rem;
+  border: 2px solid ${colors.primaryDark};
+  &:hover {
+    background: ${colors.primaryDark};
+    color: ${colors.light};
+    border-color: transparent;
+    cursor: pointer;
   }
 `;
 
@@ -229,8 +255,14 @@ export const MenuListMobile = styled.div`
   }
 `;
 
-export const HomeImage = styled.img.attrs({
-  src: homeImage,
+export const HomeBanner = styled.img.attrs({
+  src: homeBanner,
+})`
+  width: 100%;
+`;
+
+export const AboutBanner = styled.img.attrs({
+  src: aboutBanner,
 })`
   width: 100%;
 `;
